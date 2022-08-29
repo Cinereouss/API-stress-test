@@ -1,0 +1,16 @@
+{
+  "name": "http-pipelining",
+  "version": "1.0.0",
+  "description": "Package http-pipelining for Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hieu La",
+  "license": "ISC",
+  "dependencies": {
+    "cli-progress": "^3.11.2",
+    "net": "^1.0.2"
+  },
+  "type": "module"
+}
