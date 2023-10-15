@@ -4,22 +4,22 @@ function getRandomInterger(min, max) {
 
 function getBody() {
   return {
-    field1: getRandomInterger(110, 110),
-    field2: getRandomInterger(1, 1),
+    email: 'xxxx',
+    password: 'xxxx',
   };
 }
 
 const configuration = {
   SETTING: {
-    CCU: 100,
+    CCU: 10,
     DOWNTIME: 1000,
-    STRESS_TIME: 10
+    STRESS_TIME: 60,
   },
   API: {
-    HOST: "example.com",
-    PORT: 80,
-    METHOD: "POST",
-    PATH: "/api/v1/xxx",
+    HOST: 'xxxxxx',
+    PORT: 443,
+    METHOD: 'POST',
+    PATH: '/api/sign-in',
     BODY: getBody(),
   },
 };
@@ -32,16 +32,13 @@ const header = [
 
 function getNewRequest() {
   const body = getBody();
-  // console.log(`Send request : ${JSON.stringify(body)}`);
 
   const newHeader = [].concat(header);
 
   newHeader.push(`Content-Type: application/json`);
-  newHeader.push(
-    `Content-Length: ${Buffer.from(JSON.stringify(body)).length}`
-  );
+  newHeader.push(`Content-Length: ${Buffer.from(JSON.stringify(body)).length}`);
 
-  let request = Buffer.from(newHeader.join("\r\n") + "\r\n\r\n", "utf8");
+  let request = Buffer.from(newHeader.join('\r\n') + '\r\n\r\n', 'utf8');
   request = Buffer.concat([request, Buffer.from(JSON.stringify(body))]);
 
   return request;
